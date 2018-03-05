@@ -67,12 +67,15 @@ class PWMThrottle:
     def __init__(self, controller=None,
                        max_pulse=300,
                        min_pulse=490,
-                       zero_pulse=350):
+                       zero_pulse=350,
+		       deadzone_fw=388):
 
         self.controller = controller
         self.max_pulse = max_pulse
         self.min_pulse = min_pulse
         self.zero_pulse = zero_pulse
+        self.deadzone_fw = deadzone_fw
+        print("deadzone fw is: ", self.deadzone_fw)
         
         #send zero pulse to calibrate ESC
         self.controller.set_pulse(self.zero_pulse)
@@ -83,7 +86,7 @@ class PWMThrottle:
         if throttle > 0:
             pulse = dk.utils.map_range(throttle,
                                     0, self.MAX_THROTTLE, 
-                                    self.zero_pulse, self.max_pulse)
+                                    self.deadzone_fw, self.max_pulse)
         else:
             pulse = dk.utils.map_range(throttle,
                                     self.MIN_THROTTLE, 0, 

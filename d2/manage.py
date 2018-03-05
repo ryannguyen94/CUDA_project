@@ -111,7 +111,8 @@ def drive(cfg, model_path=None, use_joystick=False):
     throttle = PWMThrottle(controller=throttle_controller,
                                     max_pulse=cfg.THROTTLE_FORWARD_PWM,
                                     zero_pulse=cfg.THROTTLE_STOPPED_PWM, 
-                                    min_pulse=cfg.THROTTLE_REVERSE_PWM)
+                                    min_pulse=cfg.THROTTLE_REVERSE_PWM,
+				    deadzone_fw=cfg.THROTTLE_DEADZONE_FW)
     
     V.add(steering, inputs=['angle'])
     V.add(throttle, inputs=['throttle'])
@@ -123,7 +124,8 @@ def drive(cfg, model_path=None, use_joystick=False):
     th = TubHandler(path=cfg.DATA_PATH)
     tub = th.new_tub_writer(inputs=inputs, types=types)
     V.add(tub, inputs=inputs, run_condition='recording')
-    
+    for entry in V.mem.keys():
+        print("mem entry: ", entry, " - ", V.mem.get(entry))
     #run the vehicle for 20 seconds
     V.start(rate_hz=cfg.DRIVE_LOOP_HZ, 
             max_loop_count=cfg.MAX_LOOPS)
