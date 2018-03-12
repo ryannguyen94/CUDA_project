@@ -1,11 +1,11 @@
-Welcome!
+The code for this project is created based on the donkeycar open-source project.
+https://github.com/wroscoe/donkey/
 
-First make sure you have the recent version of donkey installed.
+This repo includes the code that lives on the raspberry pi which uses the trained CNN model from the PC to drive the car. The code to train the data on the PC can be found on this repo: https://github.com/ryannguyen94/CUDA_project_PC
 
-1. `cd donkeycar`
-2. `git pull origin master`
-
-Next create your car app by running `donkey createcar --path d2`. This will create a new directory 
-where all your car scripts will live.
-
-Check out more instructions at docs.donkeycar.com
+Things that are modified/added to fit our design:
+  - The data rate
+  - The PWM range of throttle and steering
+  - The addition of throttle deadzone in the control of the throttle
+  - The camera resolution
+  - The image filter was added but is commented out because it slowed down the process too much
