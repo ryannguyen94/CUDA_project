@@ -1,7 +1,9 @@
 The code for this project is created based on the donkeycar open-source project.
 https://github.com/wroscoe/donkey/
 
-This repo includes the code that lives on the raspberry pi which uses the trained CNN model from the PC to drive the car. The code to train the data on the PC can be found on this repo: https://github.com/ryannguyen94/CUDA_project_PC
+This repo includes the code that lives on the raspberry pi which uses the trained CNN model from the PC to drive the car. 
+The code to train the data on the PC can be found on this repo: 
+https://github.com/ryannguyen94/CUDA_project_PC
 
 Things that are modified/added to fit our design:
   - The data rate
