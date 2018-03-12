@@ -1,4 +1,4 @@
-The code for this project is created based on the donkeycar open-source project.
+The code for this project is created based on the donkeycar open-source library.
 https://github.com/wroscoe/donkey/
 
 This repo includes the code that lives on the raspberry pi which uses the trained CNN model from the PC to drive the car. 
