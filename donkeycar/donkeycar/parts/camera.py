@@ -43,6 +43,16 @@ class PiCamera(BaseCamera):
             # grab the frame from the stream and clear the stream in
             # preparation for the next frame
             self.frame = f.array
+            #self.frame = f.array[:,:,:]
+            #self.frame.setflags(write=1)
+
+            #for i in range(self.frame.shape[0]):
+            #    for j in range(self.frame.shape[1]):
+            #        if (140 <= self.frame[i,j,0] <= 170) and (80 <= self.frame[i,j,1] <=110) \
+            #                and (60 <= self.frame[i,j,2] <80):
+            #            pass
+            #        else:
+            #            self.frame[i, j, :] = [0, 0, 0]
             self.rawCapture.truncate(0)
 
             # if the thread indicator variable is set, stop the thread
