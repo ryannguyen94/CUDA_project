@@ -11,3 +11,12 @@ Things that are modified/added to fit our design:
   - The addition of throttle deadzone in the control of the throttle
   - The camera resolution
   - The image filter was added but is commented out because it slowed down the process too much
+
+manage.py is the main script that can be used to run training, manual driving, or autopilot driving.
+Because this code lives on the pi, for manual driving, run:
+python manage.py drive
+
+To run the car with a trained model, run:
+python manage.py drive --model <path to model>
+
+Open up <pi IP address>:8887 in a web browser to switch between manual and autopilot driving.
